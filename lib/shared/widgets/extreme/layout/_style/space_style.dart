@@ -1,0 +1,4 @@
+enum SpaceStyle {
+  spaceBetween,
+  expandedSpaceBetween,
+}

@@ -1,0 +1,4 @@
+enum PermissionFormType {
+  fullDay,
+  halfDay,
+}
