@@ -9,7 +9,7 @@ class ExAppBar {
   }) {
     return AppBar(
       title: Text(title),
-      elevation: 0.0,
+      elevation: 1.0,
       actions: actions,
       bottom: bottom,
     );

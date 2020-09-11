@@ -29,11 +29,54 @@ class _ProductFormViewState extends State<ProductFormView> {
                 color: Colors.white,
                 child: Column(
                   children: [
+                    Container(
+                      width: 130.0,
+                      height: 130.0,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://www.bengi.nl/wp-content/uploads/2014/10/no-image-available1.png"),
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: InkWell(
+                              onTap: () {
+                                final picker = ImagePicker();
+                                picker.getImage(source: ImageSource.camera);
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: Colors.grey[400],
+                                child: Padding(
+                                  padding: const EdgeInsets.all(0.6),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(Icons.camera_alt),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     ExTextField(
                       id: "product_name",
                       label: "Product Name",
                     ),
-                    ExCombo(
+                    ExComboPopup(
                       id: "brand",
                       label: "Brand",
                       items: [
@@ -47,10 +90,12 @@ class _ProductFormViewState extends State<ProductFormView> {
                         }
                       ],
                     ),
-                    ExCombo(
+                    ExComboPopup(
                       id: "product_category",
                       label: "Product Category",
                       items: controller.getProductCategoryItems(),
+                      // labelField: "product_category_name",
+                      // valueField: "id",
                     ),
                     ExTextField(
                       id: "price",
@@ -76,7 +121,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                   children: [
                     Expanded(
                       child: Container(
-                       padding: const EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 8.0,
                         ),
                         child: Text(
@@ -158,7 +203,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                         keyboardType: TextInputType.number,
                         value: "0",
                       ),
-                      ExCombo(
+                      ExComboPopup(
                         id: "unit",
                         label: "Unit",
                         items: [

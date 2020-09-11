@@ -27,144 +27,166 @@ class _ProductListViewState extends State<ProductListView> {
               onTap: () {},
             ),
           ],
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                child: Text("Product"),
-              ),
-              Tab(
-                child: Text("Category"),
-              ),
-            ],
-          ),
-          body: TabBarView(
+          // bottom: TabBar(
+          //   tabs: [
+          //     Tab(
+          //       child: Text("Product"),
+          //     ),
+          //     Tab(
+          //       child: Text("Category"),
+          //     ),
+          //   ],
+          // ),
+          body: Column(
             children: [
-              Scaffold(
-                floatingActionButton: FloatingActionButton(
-                  backgroundColor: ButtonType.warning,
-                  child: Icon(Icons.add),
-                  onPressed: () {
-                    Get.to(ProductFormView());
-                  },
-                ),
-                body: Column(
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              height: 50.0,
-                              child: ExTextField(
-                                id: "",
-                                label: "",
-                                hideLabel: true,
-                                icon: Icons.search,
-                                hintText: "Search Product",
-                                useIcon: true,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          ActionIcon(
-                            icon: Icons.tune,
-                            color: TS.getHeaderTextColor(),
-                            onTap: () {},
-                          ),
-                        ],
-                      ),
+              Container(
+                color: Colors.white,
+                child: TabBar(
+                  indicatorColor: ButtonType.warning,
+                  indicatorWeight: 4,
+                  tabs: [
+                    Tab(
+                      child: Text("Product"),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListView.builder(
-                          itemCount: controller.productList.length,
-                          itemBuilder: (context, index) {
-                            var item = controller.productList[index];
-
-                            return Container(
-                              margin: EdgeInsets.only(bottom: 10.0),
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                    width: 0.6,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 80.0,
-                                    height: 80.0,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: NetworkImage(item["image"]),
-                                      ),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(12.0)),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                      right: 8.0,
-                                      top: 10.0,
-                                      bottom: 10.0,
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          item["product_name"],
-                                          style: TextStyle(
-                                            fontSize: 16.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                      right: 8.0,
-                                      top: 10.0,
-                                      bottom: 10.0,
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          "Stock",
-                                          style: TextStyle(
-                                            fontSize: 16.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          item["stock"].toString(),
-                                          style: TextStyle(
-                                            fontSize: 14.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                    Tab(
+                      child: Text("Category"),
                     ),
                   ],
                 ),
               ),
-              ProductCategoryListView(
-                hideAppBar: true,
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    Scaffold(
+                      floatingActionButton: FloatingActionButton(
+                        backgroundColor: ButtonType.warning,
+                        child: Icon(Icons.add),
+                        onPressed: () {
+                          Get.to(ProductFormView());
+                        },
+                      ),
+                      body: Column(
+                        children: [
+                          Container(
+                            color: Colors.white,
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    height: 50.0,
+                                    child: ExTextField(
+                                      id: "",
+                                      label: "",
+                                      hideLabel: true,
+                                      icon: Icons.search,
+                                      hintText: "Search Product",
+                                      useIcon: true,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                ActionIcon(
+                                  icon: Icons.tune,
+                                  color: TS.getHeaderTextColor(),
+                                  onTap: () {},
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListView.builder(
+                                itemCount: controller.productList.length,
+                                itemBuilder: (context, index) {
+                                  var item = controller.productList[index];
+
+                                  return Container(
+                                    margin: EdgeInsets.only(bottom: 10.0),
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      border: Border(
+                                        bottom: BorderSide(
+                                          width: 0.6,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 80.0,
+                                          height: 80.0,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image:
+                                                  NetworkImage(item["image"]),
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(12.0)),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 8.0,
+                                            right: 8.0,
+                                            top: 10.0,
+                                            bottom: 10.0,
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                item["product_name"],
+                                                style: TextStyle(
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 8.0,
+                                            right: 8.0,
+                                            top: 10.0,
+                                            bottom: 10.0,
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                "Stock",
+                                                style: TextStyle(
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                              Text(
+                                                item["stock"].toString(),
+                                                style: TextStyle(
+                                                  fontSize: 14.0,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ProductCategoryListView(
+                      hideAppBar: true,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -67,6 +67,7 @@ export 'package:pos_app/shared/widgets/extreme/textfield/ex_date_picker.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_number_picker.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_text_area.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_text_area_bk.dart';
+export 'package:pos_app/shared/widgets/extreme/textfield/ex_combo_popup.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_text_field.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_text_field_base.dart';
 export 'package:pos_app/shared/widgets/extreme/textfield/ex_time_picker.dart';
