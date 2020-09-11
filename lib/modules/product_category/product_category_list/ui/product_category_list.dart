@@ -50,6 +50,18 @@ class _ProductCategoryListViewState extends State<ProductCategoryListView> {
           child: ExReorderAbleList(
             items: controller.productCategoryList,
             keyField: "id",
+            itemBuilder: (item) {
+              return Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 14.0,
+                    horizontal: 14.0,
+                  ),
+                  child: Text(item["product_category_name"],
+                      style: Theme.of(context).textTheme.subtitle1),
+                ),
+              );
+            },
           ),
           // child: ListView.builder(
           //   itemCount: controller.productCategoryList.length,

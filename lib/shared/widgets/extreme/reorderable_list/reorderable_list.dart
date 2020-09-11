@@ -5,9 +5,12 @@ import 'package:pos_app/shared/widgets/extreme/reorderable_list/reorderable_item
 class ExReorderAbleList extends StatefulWidget {
   final List items;
   final String keyField;
+  final dynamic itemBuilder;
+
   ExReorderAbleList({
     this.items,
     this.keyField = "key",
+    this.itemBuilder,
   });
 
   @override
@@ -78,6 +81,7 @@ class _ExReorderAbleListState extends State<ExReorderAbleList> {
               isFirst: index == 0,
               isLast: index == items.length - 1,
               keyField: widget.keyField.toString(),
+              itemBuilder: widget.itemBuilder,
             );
           },
         ),

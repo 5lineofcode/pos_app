@@ -7,12 +7,14 @@ class ReorderableListItem extends StatelessWidget {
     this.isFirst,
     this.isLast,
     this.keyField = "key",
+    this.itemBuilder,
   });
 
   final dynamic data;
   final bool isFirst;
   final bool isLast;
   final String keyField;
+  final dynamic itemBuilder;
 
   Widget _buildChild(BuildContext context, ReorderableItemState state) {
     BoxDecoration decoration;
@@ -59,16 +61,7 @@ class ReorderableListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   dragHandle,
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 14.0,
-                        horizontal: 14.0,
-                      ),
-                      child: Text(data["product_category_name"],
-                          style: Theme.of(context).textTheme.subtitle1),
-                    ),
-                  ),
+                  itemBuilder(data),
                 ],
               ),
             ),
