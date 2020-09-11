@@ -88,7 +88,8 @@ dependencies:
   image_gallery_saver: ^1.2.2
   bot_toast: ^2.2.1
   page_transition: ^1.1.5
-  
+  flutter_reorderable_list: 0.1.4
+
   flutter_localizations:
     sdk: flutter
     
