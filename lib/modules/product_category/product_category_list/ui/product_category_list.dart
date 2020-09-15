@@ -56,14 +56,30 @@ class _ProductCategoryListViewState extends State<ProductCategoryListView> {
                 items: controller.productCategoryList,
                 keyField: "id",
                 itemBuilder: (item) {
-                  return Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 14.0,
-                        horizontal: 14.0,
+                  return InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            contentPadding: EdgeInsets.all(0.0),
+                            content: Container(
+                              height: 130.0,
+                              child: ProductCategoryFormView(),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal: 14.0,
+                        ),
+                        child: Text(item["product_category_name"],
+                            style: Theme.of(context).textTheme.subtitle1),
                       ),
-                      child: Text(item["product_category_name"],
-                          style: Theme.of(context).textTheme.subtitle1),
                     ),
                   );
                 },

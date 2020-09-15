@@ -104,75 +104,78 @@ class _ProductListViewState extends State<ProductListView> {
                                 itemBuilder: (context, index) {
                                   var item = controller.productList[index];
 
-                                  return Container(
-                                    margin: EdgeInsets.only(bottom: 10.0),
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      border: Border(
-                                        bottom: BorderSide(
-                                          width: 0.6,
-                                          color: Colors.grey,
+                                  return InkWell(
+                                    onTap: () => Get.to(ProductFormView()),
+                                    child: Container(
+                                      margin: EdgeInsets.only(bottom: 10.0),
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            width: 0.6,
+                                            color: Colors.grey,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 80.0,
-                                          height: 80.0,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image:
-                                                  NetworkImage(item["image"]),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: 80.0,
+                                            height: 80.0,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image:
+                                                    NetworkImage(item["image"]),
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(12.0)),
                                             ),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(12.0)),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            left: 8.0,
-                                            right: 8.0,
-                                            top: 10.0,
-                                            bottom: 10.0,
-                                          ),
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                item["product_name"],
-                                                style: TextStyle(
-                                                  fontSize: 16.0,
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 8.0,
+                                              right: 8.0,
+                                              top: 10.0,
+                                              bottom: 10.0,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  item["product_name"],
+                                                  style: TextStyle(
+                                                    fontSize: 16.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Spacer(),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            left: 8.0,
-                                            right: 8.0,
-                                            top: 10.0,
-                                            bottom: 10.0,
-                                          ),
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                "Stock",
-                                                style: TextStyle(
-                                                  fontSize: 16.0,
+                                          Spacer(),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 8.0,
+                                              right: 8.0,
+                                              top: 10.0,
+                                              bottom: 10.0,
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  "Stock",
+                                                  style: TextStyle(
+                                                    fontSize: 16.0,
+                                                  ),
                                                 ),
-                                              ),
-                                              Text(
-                                                item["stock"].toString(),
-                                                style: TextStyle(
-                                                  fontSize: 14.0,
+                                                Text(
+                                                  item["stock"].toString(),
+                                                  style: TextStyle(
+                                                    fontSize: 14.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },

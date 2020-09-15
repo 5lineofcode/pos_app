@@ -89,6 +89,12 @@ class _ProductFormViewState extends State<ProductFormView> {
                           "value": "Nokia",
                         }
                       ],
+                      onAdd: () {
+                        Get.snackbar("Example", "onAdd Example");
+                      },
+                      onEdit: () {
+                        Get.snackbar("Example", "onEdit Example");
+                      },
                     ),
                     ExComboPopup(
                       id: "product_category",

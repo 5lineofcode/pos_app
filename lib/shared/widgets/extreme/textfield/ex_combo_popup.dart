@@ -49,6 +49,9 @@ class ExComboPopup extends StatefulWidget {
   final String labelField;
   final String valueField;
 
+  final Function onAdd;
+  final Function onEdit;
+
   ExComboPopup({
     @required this.id,
     this.label,
@@ -87,6 +90,8 @@ class ExComboPopup extends StatefulWidget {
     this.items,
     this.labelField = "label",
     this.valueField = "value",
+    this.onAdd,
+    this.onEdit,
   });
 
   @override
@@ -199,24 +204,37 @@ class _ExComboPopupState extends State<ExComboPopup> {
                 content: Container(
                   child: Wrap(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Add New ${widget.label}",
-                              style: TextStyle(
-                                fontSize: 12.0,
+                      InkWell(
+                        onTap: () {
+                          if (widget.onAdd == null) {
+                            Get.defaultDialog(
+                              middleText:
+                                  "Please define onAdd Event for ExComboPopup#${widget.id}",
+                            );
+                          } else {
+                            Get.back();
+                            widget.onAdd();
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Add New ${widget.label}",
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: ButtonType.warning,
+                                ),
+                              ),
+                              Icon(
+                                Icons.add,
                                 color: ButtonType.warning,
                               ),
-                            ),
-                            Icon(
-                              Icons.add,
-                              color: ButtonType.warning,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -257,10 +275,23 @@ class _ExComboPopupState extends State<ExComboPopup> {
                                           ),
                                         ),
                                         Spacer(),
-                                        Icon(
-                                          Icons.edit,
-                                          size: 18.0,
-                                          color: Colors.grey[800],
+                                        InkWell(
+                                          onTap: () {
+                                            if (widget.onEdit == null) {
+                                              Get.defaultDialog(
+                                                middleText:
+                                                    "Please define onEdit Event for ExComboPopup#${widget.id}",
+                                              );
+                                            } else {
+                                              Get.back();
+                                              widget.onEdit();
+                                            }
+                                          },
+                                          child: Icon(
+                                            Icons.edit,
+                                            size: 18.0,
+                                            color: Colors.grey[800],
+                                          ),
                                         ),
                                       ],
                                     ),
