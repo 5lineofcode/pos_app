@@ -185,7 +185,14 @@ class _ExTextFieldState extends State<ExTextField> {
           height: 38.0,
           padding: EdgeInsets.only(top: 3.0, bottom: 3.0),
           decoration: BoxDecoration(
-            color: widget.enable == false ? Colors.grey[200] : null,
+            // color: widget.enable == false
+            //     ? (widget.backgroundColor == null
+            //         ? Colors.grey[200]
+            //         : widget.backgroundColor)
+            //     : null,
+            color: widget.enable == false
+                ? Colors.grey[200]
+                : widget.backgroundColor,
             border: Border.all(
               color: focusNode.hasFocus ? Colors.orange : Colors.grey[300],
               width: 1.0,
@@ -248,6 +255,9 @@ class _ExTextFieldState extends State<ExTextField> {
                           )
                         : null,
                     hintText: widget.hintText,
+                    hintStyle: TextStyle(
+                      color: Color(0xffaaabaf),
+                    ),
                     helperText: widget.helperText,
                     contentPadding: widget.contentPadding,
                     isDense: true,

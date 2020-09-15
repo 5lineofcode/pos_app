@@ -2,11 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pos_app/core.dart';
 
+Color backgroundColor = Color(0xffe0e0e0);
+
 class ButtonType {
   static Color primary = Colors.blue[900];
   static Color success = Colors.green;
   static Color danger = Colors.red[400];
-  static Color warning = Colors.orange;
+  static Color warning = Color(0xfffe6601);
   static Color info = Colors.lightBlue;
   static Color disabled = Colors.grey[400];
   static Color textColor = Colors.white;

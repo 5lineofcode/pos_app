@@ -19,7 +19,7 @@ class TS {
     "background_color": Color(0xffe8e9ec),
     "radio_background_color": Color(0xffe4e7f0),
     "primary_color": Color.fromRGBO(13, 124, 56, 1),
-    "header_text_color": Colors.grey[700],
+    "header_text_color": Color(0xff393a3f),
     "sub_header_text_color": Colors.white,
     "text_color": Colors.grey[600],
     "value_color": Colors.grey[800],

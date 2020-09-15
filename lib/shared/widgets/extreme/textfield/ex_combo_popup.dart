@@ -262,8 +262,8 @@ class _ExComboPopupState extends State<ExComboPopup> {
                                   width: Get.width,
                                   child: Padding(
                                     padding: const EdgeInsets.only(
-                                      top: 4.0,
-                                      bottom: 4.0,
+                                      top: 0.0,
+                                      bottom: 8.0,
                                     ),
                                     child: Row(
                                       children: [

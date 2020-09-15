@@ -23,7 +23,7 @@ class _ProductListViewState extends State<ProductListView> {
           actions: [
             ActionIcon(
               icon: Icons.more_vert,
-              color: TS.getHeaderTextColor(),
+              color: ButtonType.warning,
               onTap: () {},
             ),
           ],
@@ -42,7 +42,7 @@ class _ProductListViewState extends State<ProductListView> {
               Container(
                 color: Colors.white,
                 child: TabBar(
-                  indicatorColor: ButtonType.warning,
+                  indicatorColor: Color(0xffe54535),
                   indicatorWeight: 4,
                   tabs: [
                     Tab(
@@ -75,6 +75,7 @@ class _ProductListViewState extends State<ProductListView> {
                                 Expanded(
                                   child: Container(
                                     height: 50.0,
+                                    color: Color(0xfff3f4f8),
                                     child: ExTextField(
                                       id: "",
                                       label: "",
@@ -82,6 +83,8 @@ class _ProductListViewState extends State<ProductListView> {
                                       icon: Icons.search,
                                       hintText: "Search Product",
                                       useIcon: true,
+                                      backgroundColor: Color(0xfff3f4f8),
+                                      textColor: Color(0xffaaabaf),
                                     ),
                                   ),
                                 ),
@@ -90,7 +93,7 @@ class _ProductListViewState extends State<ProductListView> {
                                 ),
                                 ActionIcon(
                                   icon: Icons.tune,
-                                  color: TS.getHeaderTextColor(),
+                                  color: ButtonType.warning,
                                   onTap: () {},
                                 ),
                               ],

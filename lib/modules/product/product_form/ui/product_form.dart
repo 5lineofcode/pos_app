@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pos_app/core.dart';
 import 'package:pos_app/modules/product/product_form/controller/product_form_controller.dart';
+import 'package:pos_app/modules/product_category/product_category_form/ui/product_category_form.dart';
 
 class ProductFormView extends StatefulWidget {
   @override
@@ -91,6 +92,19 @@ class _ProductFormViewState extends State<ProductFormView> {
                       ],
                       onAdd: () {
                         Get.snackbar("Example", "onAdd Example");
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            // return object of type Dialog
+                            return AlertDialog(
+                              contentPadding: EdgeInsets.all(0.0),
+                              content: Container(
+                                height: 130.0,
+                                child: ProductCategoryFormView(),
+                              ),
+                            );
+                          },
+                        );
                       },
                       onEdit: () {
                         Get.snackbar("Example", "onEdit Example");
@@ -114,7 +128,7 @@ class _ProductFormViewState extends State<ProductFormView> {
               ),
               Container(
                 height: 10.0,
-                color: Colors.grey[300],
+                color: backgroundColor,
               ),
               Container(
                 color: Colors.white,
@@ -234,7 +248,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                 width: Get.width,
                 child: ExButton(
                   label: "Add Variant",
-                  type: Colors.grey[300],
+                  type: backgroundColor,
                   textColor: Colors.grey[800],
                   onPressed: () {},
                 ),
